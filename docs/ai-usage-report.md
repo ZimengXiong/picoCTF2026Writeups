@@ -78,8 +78,8 @@ Only Gemini 3.1 Pro was able to one-shot a solution to `paper-2` when prompted 3
 
 More impressively, Gemini has the weakest harness (limited to Python), while 5.4 Pro and Opus 4.6 both had a minimal linux shell and node enviorment (though docker was not avaliable in either), this means 3.1 Pro solved the problem only through static analysis, and without any scripting. Had 5.4 Pro had docker access in it's container or some way to experiment, it may have been able to produce a solution, sadly there is no codex (the CLI) access to 5.4 pro, so we'll never know (unless someone wants to foot the API bill).
 
-##### Gemini 3.1 Pro
+#### Gemini 3.1 Pro
 ![](gemini-solving-oneshot.png)
 
-##### ChatGPT 5.4 Pro Extended Thinking
+#### ChatGPT 5.4 Pro Extended Thinking
 ![](chatgpt-pro-failing.png)

@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
   "installCommand": "uv sync --frozen",
   "buildCommand": "uv run mkdocs build",
   "outputDirectory": "site",
