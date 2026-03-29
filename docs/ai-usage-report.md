@@ -52,7 +52,7 @@ I built a problem intake/solving harness. For each problem, it would:
 2. Launch an interactive codex session within
 3. Feed a custom prompt file with instructions based on the type of problem (designated at problem intaking), alongside a custom CTF-skill I wrote specifically for jeopardy-style CTFs (triaging methods/common solutions by problem category)
 
-The harness used a web UI, and would stream the `tmux` session so I could interactively communicate with sessions in browser. Agents could request help/assistance and be surfaced in the UI. Agents could also declare a `flag` for review. Agents who submitted a flag for review or help/assistance request would trigger a new tab to be automatically opened with that agent's interactive session.
+The harness used a web UI, and would stream the `tmux` session so I could interactively communicate with sessions in browser. Agents could request help/assistance and be surfaced in the UI. Agents could also declare a `flag` for review. Agents who submitted a flag for review or help/assistance request would trigger a new tab to be automatically opened with that agent's interactive session. The median time to flag was around 10 minutes for the 60 problems entered into the harness (the hard ones were not placed into the harness, because there was a lot of back and forth and manual intervention that would not be possible in the harness).
 
 ### Misc
 I built a chrome extension to make it easy to copy the problem statement, all links/artifacts, and hints.
