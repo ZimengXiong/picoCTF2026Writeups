@@ -1,6 +1,5 @@
 # AI Usage
-
-I used a lot of AI, a lot of it...
+> Note: I am only detailing my usage of agents here, and NOT my thought process/approach to solving the problems. so technical problem solving details are vague. I will do writeups later when I have time. 🙂
 
 ## The General Pipeline
 Every problem was initially sent to be triaged by an agent, which also set up a testing environment for it. Depending on the problem, the agents would either: solve it immediately (if easy), triage and propose solve paths, ask me for manual assistance, or completely fail.
