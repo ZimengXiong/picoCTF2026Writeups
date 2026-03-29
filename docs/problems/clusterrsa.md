@@ -113,7 +113,7 @@ print(bytes.fromhex(format(m, "x")).decode())
 Running that gives us:
 
 ```text
-picoCTF{mul71_rsa_8c9fb77d}
+picoCTF{mul71_rsa_xxxxxxxx}
 ```
 
 RSA itself is fine here. What is broken is the way this specific modulus was generated. By using four primes that are all nearly the same size, we turn the challenge into a guided local search once we look near the fourth root.

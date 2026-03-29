@@ -130,7 +130,7 @@ def decrypt(ct, f, n, p, q):
 That turns the ciphertext blocks back into bits, then bytes, and finally the flag:
 
 ```text
-picoCTF{th4ts_s0_N0t_TRU3_38a83032}
+picoCTF{th4ts_s0_N0t_TRU3_xxxxxxxx}
 ```
 
 NTRU-style schemes depend heavily on parameter choices. Here, the dimension is too small and the secrets are too short, so the private key is visible to lattice reduction. We are not breaking lattice cryptography in general (that would be trouble), this only works bc the instance is deliberately undersized.

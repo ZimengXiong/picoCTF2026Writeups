@@ -64,7 +64,7 @@ I prioritized non-instance problems and problems with remote source code given, 
 ## Reflections
 
 ### About picoCTF
-I don't see myself doing anything different next year given that AI were still to be allowed in the competition(besides using better agents, this time I really just wanted to see how far the normal person could get for free, which went pretty well I would say). Using AI brings a different kind of thrill (in building agentic systems) rather than exactly solving CTFs.
+I don't see myself doing anything different next year given that AI were still to be allowed in the competition (besides using better agents, this time I really just wanted to see how far the normal person could get for free, which went pretty well I would say). Using AI brings a different kind of thrill (in building agentic systems) rather than exactly solving CTFs.
 
 I definitely did not have as much involvement in the problem solving process (really only around 10 problems were over 80% authored/written by me out of a total of nearly 70).
 
