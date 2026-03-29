@@ -1,11 +1,15 @@
 site_name: picoCTF2026 Writeups
 site_description: Writeups for picoCTF 2026.
+repo_url: https://github.com/ZimengXiong/picoCTF2026Writeups
+repo_name: GitHub
 strict: true
 
 theme:
   name: material
   favicon: assets/site-icon.svg
   logo: assets/site-icon.svg
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.sections
     - navigation.expand
