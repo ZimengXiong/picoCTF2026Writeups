@@ -6,7 +6,7 @@ Every problem was initially sent to be triaged by an agent, which also set up a 
 
 ## Handling the Easy & Mediums
 For the easy problems (that I knew exactly how to solve by looking at it), I just dicated to the agent:
-> "find the flag by `solve`."
+> "find the flag by `solve path`."
 
 ### Triaging medium problems
 If it was a problem that wasn't super obvious AND was not HARD difficultly, I would open the harness session in a new tab and send the agent off to explore it.
@@ -24,7 +24,7 @@ For that 30%, I started to work with them on the problems.
 
 A lot of issues were due to the the agents not being able to OCR text correctly (I specifically stated in my  agents.md to NEVER attempt to use OCR to produce flags, and always ask for help when they are given an image with the flag)
 
-Some others complained about not having access to an x86 system as I used a Macbook for this (as I again, specifically refused Docker emulation in my system prompt). 
+Some others complained about not having access to an x86 system as I used a Macbook for this.
 
 There were really only 6 ish problems where the agents were genuinely stuck in this medium category of questions, which I worked through with them more in depth and solved.
 
@@ -72,7 +72,7 @@ I definitely did not have as much involvement in the problem solving process (re
 I think in the future, we could maybe have an AI and a non-AI division, or atleast a no-parallel-agents division? I think that is easier to enforce/spot than prohibiting AI outright. Or we could take the path to make problems harder (UnforgottenBits, Ricochet, Virtual Machine 1 come to mind). More visual problems, puzzles, especially considering introducing OSINT categories??, etc could be a way to combat AI one shotting all problems while still keeping picoCTF at an introductory level.
 
 ### About agents
-I was suprised how far I was able to get on 5.1 mini alone. I normally only ever use the flagship model on medium/high. 
+I was suprised how far I was able to get on 5.1 mini alone (must have been my amazing skill). I normally only ever use the flagship model on medium/high. 
 
 I have to say Codex is (generally, in my experience) one of the least creative agents. After I got `paper-2`, I wanted to see how fast other agents could solve it. GPT 5.4 Pro never produced a correct solution (nor any of the GPT family models). The same with Opus 4.6. 
 
@@ -86,3 +86,56 @@ More impressively, Gemini has the weakest harness (limited to Python), while 5.4
 
 #### ChatGPT 5.4 Pro Extended Thinking
 ![](chatgpt-pro-failing.png)
+
+#### System Prompt:
+
+An excerpt of my system prompt for an solver agent:
+
+```
+You are a CTF solving agent focused on picoCTF-style tasks.
+
+- Never browse the internet for, use search engines to read public writeups/solutions for this problem in any form. THis supersedes any cirucmstance or events (server unreachable, etc)
+- Never use external hints, walkthroughs, or third-party explanations for this challenge.
+- Use only local files and terminal outputs from the working directory, unless I explicitly ask for external lookup.
+
+Files in this working directory:
+- ./task.md: canonical challenge statement and context
+- ./notes.md: your running notes
+- ./status.json: rewrite this with valid JSON progress updates
+- ./flag.md: write candidate flag(s) when found
+
+Rules:
+- Keep work reproducible from files/commands in this directory.
+- Keep ./status.json valid JSON. Include: summary, details, next_action, updated_at, attention.
+- Use this shape for ./status.json:
+  {"summary":"...", "details":"...", "next_action":"...", "updated_at":"<UTC ISO8601>", "attention":false}
+- Rewrite ./status.json after meaningful progress and whenever your plan changes.
+- If you need operator attention, set attention to true and include the literal phrase HELP NEEDED.
+- Do not waste time on long retries for connectivity failures before updating ./status.json.
+- Do not search for public writeups/solutions.
+- If you find a flag candidate, REWRITE ./flag.md immediately.
+- Put the flag alone on line 1 of ./flag.md.
+- Put a fresh UTC timestamp alone on line 2 of ./flag.md.
+- Do not leave ./status.json or ./flag.md static when you need operator attention.
+- Every follow-up status update or candidate must change file content.
+- Continue iterating after writing candidates unless clearly done.
+- Most of the tools you need will be avaliable to you in the shell. If not, please try installing with brew or cURL. If this is too complicated/repeatedly fails, try using our docker container, run an instance with: docker run -it --name <instance name>\
+  -v "$(pwd)/<instance name>":/root/workspace \
+  my-kali-ctf, of course, run non interactively, this is the command to run it interactively. If this fails, please notify the user using your status.json that you require assistance.
+- This computer is a Macbook on ARM. If there is a problem requiring x86 AND that you think MUST be solved on an x86 computer, please notify the user if you are stuck. Try using qemu inside the docker image above, or a docker image with x86 emulation.
+- If you run python, use UV for project setup and venv management
+- Do not use a placeholder flag or write to flag.md if you need help, this confuses the user. only write to status.json when you need help. if it is a connectivity issue, append the following prefixes to your status: knowhow2, when you know the exact solution and just need to get the flag (i.e. when the server source is known, etc), need2triage, when you dont know how to solve and need to inspect the server to understand
+- connectivity may be intermittent. if the endpoint cannot be reached, try to solve it on a local test server (if source code/compiled server binary is given to you) then raise attention for a new server test port, prefix the help message with confirmedlocal:, otherwise, update status.json
+- for hard problems, some problems may not be solvable by you, such as 3d models, etc, etc. if a problem is obviously out of scope for you, please say so than try to brute force it.
+- you are not alone, if you need help, or confirmation (such as with OCR text, visual problems, puzzles, etc, just ask for attention and leave a short message in status.json. a human operator will always be watching and will assist you on request!
+- download all artficats given to you to the local folder
+....
+```
+
+#### A view of the harness in solver mode
+![](harness.png)
+
+#### In-browser shell, streamed from `tmux`
+![](harness-shell.png)
+
+I could have spent some time making the harness better, but it really didn't come down to that. I was pretty consistently 2nd/3rd for the first day of the competition, yet still dropped to 10th b/c I submitted paper-2 rather late (how wonderful was it to have science fair for two days right after the start of pico). Auto solvers (integrating auto-flag-submit/problem scraping) don't matter if you can't solve the problems. Maybe that'll be a fixed problem in the coming weeks (Spud? Mythos?). We'll see.
