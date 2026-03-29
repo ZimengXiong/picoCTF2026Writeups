@@ -65,11 +65,15 @@ I prioritized non-instance problems and problems with remote source code given, 
 ### About picoCTF
 I don't see myself doing anything different next year given that AI were still to be allowed in the competition (besides using better agents, this time I really just wanted to see how far the normal person could get for free, which went pretty well I would say). Using AI brings a different kind of thrill (in building agentic systems) rather than exactly solving CTFs.
 
-I definitely did not have as much involvement in the problem solving process (really only around 10 problems were over 80% authored/written by me out of a total of nearly 70).
+If I were to fully lean into automated CTF solving with agents, I would create tools for Agents to launch their own instances at will, submit flags, etc, to fully automate the process, as well as long term memory to rule out dead ends (otherwise like in paper-2, it would just endlessly spiral into the same direction as its context gets compacted into slop)
+
+I definitely did not have as much involvement in the problem solving process (really only around 25ish problems were over 70% authored/written by me out of a total of nearly 70).
 
 I think in the future, we could maybe have an AI and a non-AI division, or atleast a no-parallel-agents division? I think that is easier to enforce/spot than prohibiting AI outright. Or we could take the path to make problems harder (UnforgottenBits, Ricochet, Virtual Machine 1 come to mind). More visual problems, puzzles, especially considering introducing OSINT categories??, etc could be a way to combat AI one shotting all problems while still keeping picoCTF at an introductory level.
 
 ### About agents
+I was suprised how far I was able to get on 5.1 mini alone. I normally only ever use the flagship model on medium/high. 
+
 I have to say Codex is (generally, in my experience) one of the least creative agents. After I got `paper-2`, I wanted to see how fast other agents could solve it. GPT 5.4 Pro never produced a correct solution (nor any of the GPT family models). The same with Opus 4.6. 
 
 #### Low Cortisol Gemini 
