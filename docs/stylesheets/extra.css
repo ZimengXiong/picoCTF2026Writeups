@@ -1,0 +1,11 @@
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+.md-sidebar--primary .md-nav__title[for="__drawer"] {
+  display: none;
+}
